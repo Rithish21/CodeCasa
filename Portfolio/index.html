@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <title>My Port</title>
+</head>
+
+<body>
+    <div id="main">
+        <div id="page">
+            <div id="navbar">
+                <div id="logo">
+                    <h1>My<spam>Port.</spam>
+                    </h1>
+                </div>
+                <ul>
+                    <li><a href="#page" class="active">home</a></li>
+                    <!-- <li><a href="#">about</a></li> -->
+                    <li><a href="#page1">skills</a></li>
+                    <li><a href="#page1">projects</a></li>
+                    <li><a href="#page2">contact</a></li>
+                </ul>
+            </div>
+            <img src="—Pngtree—children s software programming_5401259.png">
+            <div id="text">
+                <h5>Hello!</h5><br>
+                <h1>I'm <span>Rithish</span><br>and I am a Passionate<br></h1>
+                <h1><span id="element"></span></h1>
+                <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum sit quos explicabo dolores
+                    excepturi hic minus amet maiores nihil eos.</h4>
+                <div id="buttons">
+                    <button id="b1" onclick="window.location.href='#page2';">Let's Talk <i class="ri-telegram-line"
+                            color="black"></i></button>
+                    <button id="b2" onclick="window.location.href='Resume.pdf';" download>Get CV <i
+                            class="ri-file-download-line"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="page1">
+            <div id="right">
+                <div id="text1">
+                    <h5>Skills</h5><br>
+                    <h1>Skills &<br><span>Projects</span></h1>&nbsp;
+                    <h4>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum atque facere dolorem eius
+                        cupiditate quae nam distinctio harum quos earum.</h4>
+                </div>
+                <div id="text2">
+                    <h1>Skills</h1>
+                    <div id="skillicon">
+                        <img src="pngwing.com (1).png">
+                        <img src="pngwing.com (6).png">
+                        <img src="pngwing.com (4).png">
+                        <img src="pngwing.com (5).png">
+                        <img src="pngwing.com (7).png">
+                        <img src="pngwing.com (8).png">
+
+                    </div>
+                </div>
+            </div>
+            <div id="left">
+                <div class="box">
+                    <img src="Screenshot (13).png" style="height: 75%;">
+                </div>
+                <div class="box">
+                    <img src="Screenshot (29).png" style="height:75%;">
+                </div>
+            </div>
+        </div>
+        <div id="page2">
+            <div id="contact">
+                <div id="container">
+                    <div id="row">
+                        <div class="contact-left">
+                            <h1 class="subtitle">Contact Me</h1>
+                            <p> <i class="ri-send-plane-line"></i>rithishplg@gmail.com</p>
+                            <p><i class="ri-phone-line"></i>+91 9481710666</p>
+                            <div class="social-icons">
+                                <a href="https://www.linkedin.com/in/rithish-plg/"><i class="ri-linkedin-fill"></i></a>
+                                <a href="#"><i class="ri-github-fill"></i></a>
+                                <a href="#"><i class="ri-instagram-fill"></i></a>
+                            </div>
+                        </div>
+                        <div class="contact-right">
+                            <form name="submit-to-google-sheet">
+                                <input type="text" name="Name" placeholder="Your Name" required>
+                                <input type="email" name="Email" placeholder="Your E-mail" required>
+                                <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                                <button type="submit" class="btn">Submit</button>
+                            </form>
+                            <span id="msg"></span>
+                        </div>
+                        <img src="Lovepik_com-401227986-man-sending-messages.png" style="left: -178px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © MyPort. Made with <i class="ri-heart-fill"></i>by Rithish </p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Developer.', 'Graphic Designer.', 'Editor.', 'Web Designer.'],
+            typeSpeed: 50,
+        });
+    </script>
+
+    <!-- script for CONTACT-FORM -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzLispqJ2TPPzIUhfykaNszXxAgNzmzKGNEjeJirOwEaaug213uGd3rUsaMgctj0UF3/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Message Sent Successfully"
+                    setTimeout(function () {
+                        msg.innerHTML = ""
+                    }, 5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+
+</html>
